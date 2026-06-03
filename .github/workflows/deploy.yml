@@ -6,7 +6,7 @@ on:
 
 env:
   REGION: asia-northeast1
-  APP_NAME: ezasset
+  APP_NAME: adeptlink
 
 jobs:
   # ── フロントエンド: 静的エクスポート → Firebase Hosting ──────────────────

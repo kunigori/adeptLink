@@ -12,7 +12,7 @@ variable "region" {
 variable "app_name" {
   description = "Application name"
   type        = string
-  default     = "ezasset"
+  default     = "adeptlink"
 }
 
 variable "mcp_server_image" {

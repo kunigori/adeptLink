@@ -28,7 +28,7 @@ function isAllowedCommand(cmd: string): boolean {
 
 function createServer(): Server {
   const server = new Server(
-    { name: "ezasset-mcp-server", version: "0.1.0" },
+    { name: "adeptlink-mcp-server", version: "0.1.0" },
     { capabilities: { tools: {} } }
   );
 
