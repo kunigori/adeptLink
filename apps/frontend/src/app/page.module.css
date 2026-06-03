@@ -1,0 +1,423 @@
+/* ─── 共通セクションレイアウト ───────────────────────────────────────────── */
+.section {
+  padding: var(--section-py, 96px) 0;
+}
+
+.container {
+  max-width: var(--max-width, 1160px);
+  margin: 0 auto;
+  padding: 0 var(--section-px, 48px);
+}
+
+/* ─── セクション見出し共通 ──────────────────────────────────────────────── */
+.sectionLabel {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-green, #20B486);
+  margin-bottom: 16px;
+}
+
+.sectionHeading {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+  color: var(--color-deep-navy, #8C0116);
+  margin-bottom: 40px;
+}
+
+.headingLarge {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.4;
+  margin-bottom: 48px;
+}
+
+.headingWhite {
+  color: var(--color-light-gray, #F4F7F6);
+}
+
+/* ─── 本文ブロック ──────────────────────────────────────────────────────── */
+.prose {
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 2;
+  color: var(--color-blue-gray, #94A3B8);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 680px;
+}
+
+.proseLarge {
+  font-size: clamp(1rem, 1.3vw, 1.125rem);
+  max-width: 760px;
+}
+
+.proseWhite {
+  color: rgba(244, 247, 246, 0.75);
+}
+
+/* ─── リンク矢印 ────────────────────────────────────────────────────────── */
+.ctaRow {
+  margin-top: 40px;
+}
+
+.linkArrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-green, #20B486);
+  border-bottom: 1px solid rgba(32, 180, 134, 0.3);
+  padding-bottom: 2px;
+  transition: gap 0.25s ease, border-color 0.25s ease;
+}
+
+.linkArrow:hover,
+.linkArrow:focus-visible {
+  gap: 14px;
+  border-color: var(--color-green, #20B486);
+  outline: none;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.linkArrow:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* ─── 2. ブランドステートメント ─────────────────────────────────────────── */
+.brandSection {
+  background: var(--color-light-gray, #F4F7F6);
+}
+
+/* ─── 3. About ──────────────────────────────────────────────────────────── */
+.aboutSection {
+  background: var(--color-white, #FFFFFF);
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+/* ─── 4. Services ───────────────────────────────────────────────────────── */
+.servicesSection {
+  background: var(--color-navy, #AF011C);
+}
+
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.serviceCard {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.serviceCard:hover {
+  border-color: rgba(32, 180, 134, 0.3);
+  background: rgba(32, 180, 134, 0.04);
+}
+
+.serviceNum {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--color-green, #20B486);
+}
+
+.serviceCategory {
+  font-size: 0.8rem;
+  color: var(--color-rose-muted, #F5C0C4);
+  font-weight: 500;
+}
+
+.serviceCopy {
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--color-light-gray, #F4F7F6);
+}
+
+.serviceDivider {
+  width: 32px;
+  height: 1px;
+  background: var(--color-green, #20B486);
+  opacity: 0.5;
+  margin: 4px 0;
+}
+
+.serviceBody {
+  font-size: 0.875rem;
+  line-height: 1.9;
+  color: var(--color-rose-muted, #F5C0C4);
+  white-space: pre-line;
+  flex: 1;
+}
+
+.serviceList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.serviceListItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: rgba(245, 192, 196, 0.85);
+  line-height: 1.5;
+}
+
+.bullet {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background: var(--color-green, #20B486);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+/* ─── 5. 統合メッセージ ─────────────────────────────────────────────────── */
+.integrationSection {
+  background: var(--color-white, #FFFFFF);
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+/* ─── 6. 実績 ───────────────────────────────────────────────────────────── */
+.trackSection {
+  background: var(--color-light-gray, #F4F7F6);
+}
+
+.trackCard {
+  background: var(--color-white, #FFFFFF);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 12px;
+  padding: 48px;
+}
+
+.trackClient {
+  margin-bottom: 24px;
+}
+
+.trackClientName {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-deep-navy, #8C0116);
+  padding: 4px 12px;
+  border-left: 3px solid var(--color-green, #20B486);
+}
+
+.trackBody {
+  font-size: 0.95rem;
+  line-height: 2;
+  color: var(--color-blue-gray, #94A3B8);
+  margin-bottom: 28px;
+}
+
+.trackItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.trackItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--color-deep-navy, #8C0116);
+  background: var(--color-light-gray, #F4F7F6);
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+/* ─── 7. Case Study ─────────────────────────────────────────────────────── */
+.caseSection {
+  background: var(--color-deep-navy, #8C0116);
+}
+
+.caseCard {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 48px;
+}
+
+.caseTitle {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-weight: 700;
+  color: var(--color-light-gray, #F4F7F6);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.caseClient {
+  font-size: 0.875rem;
+  color: var(--color-green, #20B486);
+  margin-bottom: 36px;
+  font-weight: 500;
+}
+
+.caseGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.caseBlock {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 28px;
+}
+
+.caseBlockFull {
+  grid-column: 1 / -1;
+}
+
+.caseBlockLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-green, #20B486);
+  margin-bottom: 12px;
+}
+
+.caseBlockBody {
+  font-size: 0.9rem;
+  line-height: 2;
+  color: var(--color-rose-muted, #F5C0C4);
+}
+
+/* ─── 8. News ───────────────────────────────────────────────────────────── */
+.newsSection {
+  background: var(--color-white, #FFFFFF);
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.newsList {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.newsItem {
+  display: flex;
+  align-items: baseline;
+  gap: 32px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+  transition: background 0.2s ease;
+}
+
+.newsDate {
+  font-size: 0.82rem;
+  color: var(--color-blue-gray, #94A3B8);
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.newsText {
+  font-size: 0.95rem;
+  color: var(--color-deep-navy, #8C0116);
+  line-height: 1.6;
+}
+
+/* ─── 9. Contact ────────────────────────────────────────────────────────── */
+.contactSection {
+  background: linear-gradient(135deg, var(--color-navy, #AF011C) 0%, var(--color-deep-navy, #8C0116) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.contactSection::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(32, 180, 134, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.contactCta {
+  margin-top: 48px;
+}
+
+.btnGreen {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-deep-navy, #8C0116);
+  background: var(--color-green, #20B486);
+  border-radius: 6px;
+  transition: background-color 0.25s ease, transform 0.25s ease, gap 0.25s ease;
+}
+
+.btnGreen:hover,
+.btnGreen:focus-visible {
+  background: var(--color-pale-green, #8DE8C7);
+  transform: translateY(-2px);
+  gap: 16px;
+  outline: none;
+}
+
+/* ─── レスポンシブ ──────────────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .serviceGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .caseGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .caseBlockFull {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .sectionHeading {
+    margin-bottom: 28px;
+  }
+
+  .trackCard,
+  .caseCard {
+    padding: 28px 24px;
+  }
+
+  .newsItem {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .serviceCard,
+  .linkArrow,
+  .btnGreen,
+  .newsItem {
+    transition: none;
+  }
+}

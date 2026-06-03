@@ -1,0 +1,20 @@
+services:
+  # ローカル開発: next dev でホットリロード
+  frontend:
+    image: node:20-alpine
+    working_dir: /app
+    command: sh -c "npm install && npm run dev"
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./apps/frontend:/app
+      - /app/node_modules
+    env_file:
+      - apps/frontend/.env.local
+
+  # MCP サーバー（stdio モード）
+  mcp-server:
+    build:
+      context: apps/mcp-server
+    stdin_open: true
+    tty: true

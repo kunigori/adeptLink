@@ -1,0 +1,87 @@
+.footer {
+  background: var(--color-deep-navy, #8C0116);
+  color: var(--color-rose-muted, #F5C0C4);
+  padding: 64px 0 0;
+}
+
+.inner {
+  display: flex;
+  gap: 64px;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 48px);
+  padding-bottom: 48px;
+}
+
+/* ─── ブランドエリア ─────────────────────────────────────────────────────── */
+.brand {
+  flex: 1;
+  max-width: 480px;
+}
+
+.brandCopy {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--color-light-gray, #F4F7F6);
+  margin-bottom: 32px;
+  letter-spacing: 0.02em;
+}
+
+.companyInfo {
+  font-size: 0.85rem;
+  line-height: 1.9;
+  color: var(--color-rose-muted, #F5C0C4);
+}
+
+.companyName {
+  font-weight: 700;
+  color: var(--color-light-gray, #F4F7F6);
+  margin-bottom: 4px;
+}
+
+/* ─── ナビゲーション ────────────────────────────────────────────────────── */
+.navList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 140px;
+}
+
+.navLink {
+  font-size: 0.875rem;
+  color: var(--color-rose-muted, #F5C0C4);
+  transition: color 0.2s ease;
+}
+
+.navLink:hover,
+.navLink:focus-visible {
+  color: var(--color-light-gray, #F4F7F6);
+  outline: none;
+}
+
+/* ─── コピーライト ──────────────────────────────────────────────────────── */
+.copyright {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px clamp(24px, 5vw, 48px);
+  max-width: 100%;
+  text-align: center;
+  font-size: 0.8rem;
+  color: rgba(148, 163, 184, 0.6);
+}
+
+/* ─── レスポンシブ ──────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .inner {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .navList {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+  }
+}
