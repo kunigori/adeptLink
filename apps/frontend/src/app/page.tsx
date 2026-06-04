@@ -1,334 +1,233 @@
-import Header      from "@/components/Header/Header";
-import HeroOpening from "@/components/HeroOpening/HeroOpening";
-import Footer       from "@/components/Footer/Footer";
-import styles       from "./page.module.css";
+import Link from "next/link";
+import { contactEmail } from "@/data/config";
+import { strengths } from "@/data/strengths";
+import CTASection from "@/components/CTASection";
 
-/* ─── Services データ ─────────────────────────────────────────────────────── */
-const services = [
-  {
-    num: "01",
-    category: "中小企業向けDX推進支援",
-    copy: "IT環境を整え、業務のムダを減らす。",
-    body: `DXは、大きなシステムを導入することだけではありません。
-まずは、今ある業務や契約、機器の状態を整理することから始まります。
-
-EZ-Assetでは、中小企業の現場に合わせて、通信環境やIT設備、日々の業務フローを見直し、
-無理なく進められるDXの第一歩を支援します。`,
-    items: [
-      "通信契約・インターネット契約の見直し",
-      "複数契約の整理・一本化",
-      "社内通信設備の確認",
-      "業務に合ったIT環境の整理",
-      "コスト削減につながるIT活用の提案",
-      "現場担当者へのわかりやすい説明・運用支援",
-    ],
-  },
-  {
-    num: "02",
-    category: "IT資産の再利用・適正処分支援",
-    copy: "使えるものは活かし、不要なものは正しく手放す。",
-    body: `オフィスや店舗には、まだ使える機器、処分方法がわからない設備、
-保管されたままのIT資産が残っていることがあります。
-
-EZ-Assetでは、社内にあるIT資産を確認し、再利用できるもの、処分すべきものを整理。
-不要になった機器についても、適正な処分・再資源化につながる方法をご案内します。`,
-    items: [
-      "社内通信設備の再利用可否の確認",
-      "不要IT機器の整理",
-      "処分方法のアドバイス",
-      "再資源化に向けた案内",
-      "機器更新時の資産整理",
-      "廃棄・保管・再利用の判断支援",
-    ],
-  },
-  {
-    num: "03",
-    category: "IT資産・通信環境の見直し相談",
-    copy: "契約・設備・運用を整理し、わかりやすく整える。",
-    body: `通信契約が増えすぎている。
-どの機器が必要かわからない。
-古い設備を残すべきか、処分すべきか判断できない。
-
-そんなITまわりの小さな違和感を、放置せず整理するための相談サービスです。
-
-現状を確認し、必要なもの・不要なもの・改善できるものを明確にすることで、
-事業に合ったIT環境づくりを支援します。`,
-    items: [
-      "通信契約の棚卸し",
-      "IT機器・通信設備の現状確認",
-      "契約コストの見直し",
-      "不要資産の整理",
-      "今後の設備更新に向けた相談",
-      "専門業者との連携前の事前整理",
-    ],
-  },
+const keywords = [
+  "経営戦略", "業務改善", "商品MD", "商品開発", "店舗運営",
+  "営業活性化", "人材開発", "企業価値向上", "異業種協業", "社外取締役", "顧問",
 ];
 
-const newsItems = [
-  { date: "2026.XX.XX", text: "ホームページを公開しました" },
-  { date: "2026.XX.XX", text: "中小企業向けDX推進支援を開始しました" },
-  { date: "2026.XX.XX", text: "IT資産の適正処分・再資源化支援のご相談受付を開始しました" },
-];
-
-/* ─── Page ───────────────────────────────────────────────────────────────── */
-export default function Page() {
+export default function HomePage() {
+  const subject = encodeURIComponent("ADEPTLINKへのお問い合わせ");
   return (
     <>
-      <Header />
+      {/* Hero */}
+      <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
+        <div
+          className="absolute inset-0 -z-10"
+          style={{
+            background:
+              "linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 50%, #F0F9FF 100%)",
+          }}
+        />
+        <div
+          className="absolute top-0 right-0 w-1/2 h-full -z-10 opacity-30"
+          style={{
+            background:
+              "radial-gradient(ellipse at 80% 30%, #DBEAFE 0%, transparent 60%)",
+          }}
+        />
 
-      <main>
-        {/* 1. ファーストビュー */}
-        <HeroOpening />
-
-        {/* 2. ブランドステートメント */}
-        <section className={`${styles.section} ${styles.brandSection}`}>
-          <div className={styles.container}>
-            <h2 className={`${styles.sectionHeading} ${styles.headingLarge}`}>
-              見えないムダを整え、<br />
-              使える資産を未来につなぐ。
-            </h2>
-            <div className={`${styles.prose} ${styles.proseLarge}`}>
-              <p>会社の中には、まだ活かせるIT資産が眠っています。</p>
-              <p>
-                使わなくなった通信機器。<br />
-                契約が重なったままの通信回線。<br />
-                どこに相談すればよいかわからない処分方法。<br />
-                更新されずに残った設備や、現場任せになっているIT環境。
-              </p>
-              <p>
-                それらは、日々の業務の中では見過ごされやすいものです。<br />
-                けれど、ひとつずつ見直すことで、コストを抑え、業務を整え、環境負荷を減らすことができます。
-              </p>
-              <p>
-                EZ-Assetは、ITを難しいものとしてではなく、<br />
-                事業を支える大切な資産として捉えます。
-              </p>
-              <p>
-                中小企業が無理なくDXに取り組み、<br />
-                使えるものを使い切り、不要なものは正しく循環させる。
-              </p>
-              <p>
-                その積み重ねが、企業の未来と、社会の持続可能性につながると信じています。
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* 3. About 導線 */}
-        <section className={`${styles.section} ${styles.aboutSection}`}>
-          <div className={styles.container}>
-            <p className={styles.sectionLabel}>About</p>
-            <h2 className={styles.sectionHeading}>EZ-Assetについて</h2>
-            <div className={styles.prose}>
-              <p>
-                EZ-Assetは、國光 綾香が運営する、中小企業向けのIT・DX支援事業です。
-              </p>
-              <p>
-                通信契約や社内設備の見直し、IT資産の再利用、不要機器の適正処分まで、<br />
-                企業のITまわりにある課題を、現場目線で整理します。
-              </p>
-              <p>
-                専門用語を並べるのではなく、<br />
-                「何を残すか」<br />
-                「何を変えるか」<br />
-                「何を手放すか」<br />
-                を一緒に考え、実行できる形に落とし込みます。
-              </p>
-            </div>
-            <div className={styles.ctaRow}>
-              <a href="/about" className={styles.linkArrow}>
-                EZ-Assetについて詳しく見る
-                <span aria-hidden="true" className={styles.arrow}>→</span>
+        <div className="max-w-6xl mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <p className="font-inter text-xs font-semibold uppercase tracking-widest text-accent-blue mb-6">
+              Business Growth Partner
+            </p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-tight mb-6">
+              企業価値の最大化を、<br />
+              実務経験と<br className="sm:hidden" />経営視点で支える。
+            </h1>
+            <p className="text-text-sub text-base md:text-lg leading-relaxed mb-4">
+              流通小売業界で40年以上にわたり培った実践知をもとに、
+              経営・業務・人事・事業開発の課題解決を支援します。
+            </p>
+            <p className="text-text-sub text-sm leading-relaxed mb-10">
+              ADEPTLINKは、店舗運営、商品戦略、業態開発、ドラッグ事業政策、経営管理に携わってきた経験を活かし、
+              企業の持続的な成長と価値向上を支援するコンサルティング事業です。
+              流通小売業を中心に培った知見を、商社、メーカー、建築・施工、システム開発、人材開発など、幅広い業界との協業に活かしています。
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="/services"
+                className="bg-accent-blue text-white font-medium px-8 py-3.5 rounded-full hover:bg-blue-700 transition-colors duration-200"
+              >
+                サービスを見る
+              </Link>
+              <a
+                href={`mailto:${contactEmail}?subject=${subject}`}
+                className="bg-white text-navy font-medium px-8 py-3.5 rounded-full border border-gray-200 hover:border-accent-blue hover:text-accent-blue transition-colors duration-200"
+              >
+                お問い合わせ
               </a>
             </div>
           </div>
-        </section>
 
-        {/* 4. Services */}
-        <section id="services" className={`${styles.section} ${styles.servicesSection}`}>
-          <div className={styles.container}>
-            <p className={styles.sectionLabel}>Services</p>
-            <h2 className={`${styles.sectionHeading} ${styles.headingWhite}`}>事業内容</h2>
-
-            <div className={styles.serviceGrid}>
-              {services.map((svc) => (
-                <article key={svc.num} className={styles.serviceCard}>
-                  <div className={styles.serviceNum}>{svc.num}</div>
-                  <p className={styles.serviceCategory}>{svc.category}</p>
-                  <h3 className={styles.serviceCopy}>{svc.copy}</h3>
-                  <div className={styles.serviceDivider} />
-                  <p className={styles.serviceBody}>{svc.body}</p>
-                  <ul className={styles.serviceList}>
-                    {svc.items.map((item) => (
-                      <li key={item} className={styles.serviceListItem}>
-                        <span className={styles.bullet} aria-hidden="true" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* 5. 統合メッセージ */}
-        <section className={`${styles.section} ${styles.integrationSection}`}>
-          <div className={styles.container}>
-            <h2 className={`${styles.sectionHeading} ${styles.headingLarge}`}>
-              DXと資産循環を、ひとつながりで考える。
-            </h2>
-            <div className={`${styles.prose} ${styles.proseLarge}`}>
-              <p>
-                ITを導入すること。<br />
-                契約を見直すこと。<br />
-                機器を再利用すること。<br />
-                不要な設備を適正に処分すること。
-              </p>
-              <p>
-                これらは別々の課題に見えて、実はすべてつながっています。
-              </p>
-              <p>
-                EZ-Assetは、中小企業のIT環境を「使う」「整える」「手放す」まで一貫して考えます。
-              </p>
-              <p>
-                ただ新しいものを増やすのではなく、<br />
-                今ある資産を見直し、必要なものを活かし、不要なものを正しく循環させる。
-              </p>
-              <p>
-                企業のコスト削減、業務改善、環境配慮を同時に進めるために、<br />
-                EZ-Assetは現場に寄り添った支援を行います。
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* 6. 実績・信頼材料 */}
-        <section className={`${styles.section} ${styles.trackSection}`}>
-          <div className={styles.container}>
-            <p className={styles.sectionLabel}>Track Record</p>
-            <h2 className={styles.sectionHeading}>支援実績</h2>
-
-            <div className={styles.trackCard}>
-              <div className={styles.trackClient}>
-                <span className={styles.trackClientName}>レンタルスタジオ groovin&apos; 様</span>
+          <div className="flex flex-col gap-4">
+            {[
+              { value: "40+", unit: "Years", label: "流通小売業界での経験" },
+              { value: "Multi", unit: "Format", label: "GMS・SSM・DGSでの実務経験" },
+              { value: "Executive", unit: "", label: "代表取締役社長・社外取締役を歴任" },
+            ].map(({ value, unit, label }) => (
+              <div
+                key={label}
+                className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+              >
+                <div className="flex items-baseline gap-1 mb-1">
+                  <span className="font-inter text-3xl font-bold text-navy">{value}</span>
+                  {unit && (
+                    <span className="font-inter text-lg font-semibold text-accent-blue ml-1">
+                      {unit}
+                    </span>
+                  )}
+                </div>
+                <p className="text-sm text-text-sub">{label}</p>
               </div>
-              <p className={styles.trackBody}>
-                通信プロバイダの複数契約を見直し、契約の一本化を支援。
-                あわせて、社内通信設備の再利用可否や不要設備の処分についても整理しました。
-                <br /><br />
-                複雑になっていた通信環境をわかりやすく整えることで、
-                今後の運用や管理がしやすい状態づくりをサポートしました。
-              </p>
-              <ul className={styles.trackItems}>
-                {[
-                  "通信プロバイダ複数契約の一本化",
-                  "社内通信設備の再利用提案",
-                  "不要設備の処分指南",
-                  "通信環境の整理",
-                  "IT資産の棚卸し支援",
-                ].map((item) => (
-                  <li key={item} className={styles.trackItem}>
-                    <span className={styles.bullet} aria-hidden="true" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* 7. Case Study */}
-        <section id="case-study" className={`${styles.section} ${styles.caseSection}`}>
-          <div className={styles.container}>
-            <p className={styles.sectionLabel}>Case Study</p>
-            <h2 className={`${styles.sectionHeading} ${styles.headingWhite}`}>事例紹介</h2>
+      {/* Intro */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <p className="font-inter text-xs font-semibold uppercase tracking-widest text-accent-blue mb-4">
+              About ADEPTLINK
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6 leading-snug">
+              現場を知り、経営を動かす。<br />
+              企業成長のための実践型コンサルティング。
+            </h2>
+          </div>
+          <div>
+            <p className="text-text-sub leading-relaxed mb-4">
+              企業の成長には、戦略を描くだけでなく、それを現場で実行し、継続的に改善していく力が欠かせません。
+            </p>
+            <p className="text-text-sub leading-relaxed mb-4">
+              ADEPTLINKは、現場運営から商品戦略、業態開発、営業統括、経営管理までを経験してきた実践知をもとに、企業ごとの課題に応じた支援を行います。
+            </p>
+            <p className="text-text-sub leading-relaxed mb-8">
+              計画策定にとどまらず、具現化に向けた進捗管理と推進を重視し、企業価値向上に向けた取り組みに伴走します。
+            </p>
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2 text-accent-blue font-medium hover:gap-3 transition-all duration-200"
+            >
+              ADEPTLINKについて詳しく
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
 
-            <div className={styles.caseCard}>
-              <h3 className={styles.caseTitle}>
-                通信契約の整理と社内通信設備の見直し支援
-              </h3>
-              <p className={styles.caseClient}>レンタルスタジオ groovin&apos; 様</p>
+      {/* Keywords */}
+      <section className="py-12 px-6 bg-bg-light">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-wrap gap-3 justify-center">
+            {keywords.map((kw) => (
+              <span
+                key={kw}
+                className="bg-white text-text-sub text-sm px-4 py-1.5 rounded-full border border-gray-200"
+              >
+                {kw}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
 
-              <div className={styles.caseGrid}>
-                <div className={styles.caseBlock}>
-                  <h4 className={styles.caseBlockLabel}>課題</h4>
-                  <p className={styles.caseBlockBody}>
-                    複数の通信プロバイダ契約が存在し、契約内容や利用状況がわかりにくい状態になっていました。
-                    また、社内通信設備についても、再利用できるものと処分すべきものの判断が必要でした。
-                  </p>
+      {/* Strengths */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14">
+            <p className="font-inter text-xs font-semibold uppercase tracking-widest text-accent-blue mb-3">
+              Our Strengths
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-navy">
+              ADEPTLINKの強み
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {strengths.map((s, i) => (
+              <div
+                key={s.title}
+                className="bg-bg-light rounded-2xl p-8 border border-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="font-inter text-4xl font-bold text-accent-blue/20">
+                    0{i + 1}
+                  </span>
+                  <h3 className="text-lg font-bold text-navy">{s.title}</h3>
                 </div>
+                <p className="text-text-sub text-sm leading-relaxed">{s.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-                <div className={styles.caseBlock}>
-                  <h4 className={styles.caseBlockLabel}>支援内容</h4>
-                  <p className={styles.caseBlockBody}>
-                    EZ-Assetでは、通信契約の内容を確認し、必要な契約を整理。
-                    複数契約の一本化に向けた提案を行いました。
-                    <br /><br />
-                    さらに、社内通信設備の状態を確認し、再利用できる設備と処分を検討すべき設備を整理。
-                    適正な処分に向けた考え方もご案内しました。
-                  </p>
-                </div>
+      {/* Dark Section */}
+      <section className="bg-navy-dark py-20 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="font-inter text-xs font-semibold uppercase tracking-widest text-accent-gold mb-4">
+            Our Mission
+          </p>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+            経験を、企業の次の成長へ。
+          </h2>
+          <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+            ADEPTLINKは、流通小売業界で培った現場力と経営視点をもとに、
+            企業の課題解決と価値向上を支援します。
+          </p>
+        </div>
+      </section>
 
-                <div className={`${styles.caseBlock} ${styles.caseBlockFull}`}>
-                  <h4 className={styles.caseBlockLabel}>成果</h4>
-                  <p className={styles.caseBlockBody}>
-                    通信契約と設備状況が整理され、今後の管理がしやすい状態になりました。
-                    不要な契約や設備を見直すことで、コストや管理負担の軽減につながる土台を整えました。
-                  </p>
+      {/* Representative Message */}
+      <section className="py-20 px-6 bg-bg-light">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div>
+              <p className="font-inter text-xs font-semibold uppercase tracking-widest text-accent-blue mb-4">
+                Message
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-navy mb-8 leading-snug">
+                代表メッセージ
+              </h2>
+              <div className="w-16 h-0.5 bg-accent-gold mb-8" />
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+                <img
+                  src="/image/ceo.jpeg"
+                  alt="代表 國光 良昭"
+                  className="w-full aspect-[4/5] object-cover object-top"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy/80 via-navy/30 to-transparent px-6 py-5">
+                  <p className="text-white font-bold text-lg leading-tight">國光 良昭</p>
+                  <p className="text-white/70 text-sm">ADEPTLINK 代表</p>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* 8. News */}
-        <section id="news" className={`${styles.section} ${styles.newsSection}`}>
-          <div className={styles.container}>
-            <p className={styles.sectionLabel}>News</p>
-            <h2 className={styles.sectionHeading}>ニュース</h2>
-
-            <ul className={styles.newsList}>
-              {newsItems.map((item, i) => (
-                <li key={i} className={styles.newsItem}>
-                  <time className={styles.newsDate}>{item.date}</time>
-                  <p className={styles.newsText}>{item.text}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        {/* 9. Contact */}
-        <section id="contact" className={`${styles.section} ${styles.contactSection}`}>
-          <div className={styles.container}>
-            <h2 className={`${styles.sectionHeading} ${styles.headingWhite} ${styles.headingLarge}`}>
-              ITまわりの整理、<br />
-              まずはご相談ください。
-            </h2>
-            <div className={`${styles.prose} ${styles.proseWhite}`}>
-              <p>
-                通信契約を見直したい。<br />
-                社内にあるIT機器を整理したい。<br />
-                不要設備をどう処分すればよいかわからない。<br />
-                DXを進めたいけれど、何から始めればよいかわからない。
+            <div className="lg:pt-32">
+              <p className="text-text-sub leading-relaxed mb-4">
+                流通小売業界で40年以上にわたり、店舗運営・商品戦略・業態開発・ドラッグ事業政策・経営管理など、幅広い領域に携わってまいりました。現場の最前線から経営の意思決定まで、数多くの局面でチームを牽引してきた経験は、どんな課題にも「現場視点」と「経営視点」の両軸で向き合う姿勢を育んでくれました。
               </p>
-              <p>
-                そんなお悩みがあれば、EZ-Assetにご相談ください。<br />
-                現状を丁寧に確認し、事業に合った形で、無理のない改善方法をご提案します。
+              <p className="text-text-sub leading-relaxed mb-4">
+                その実践的な知見を携え、現在は「商社」「メーカー」「建築・施工」「システム開発」「人材開発」など、多様な業界の企業様との協業を通じて、企業価値の最大化を支援しております。業界の垣根を超えた視野と、長年の現場経験から生まれる具体的な提案が、新たな成長の起点になると信じています。
+              </p>
+              <p className="text-text-sub leading-relaxed mb-8">
+                「誠実に、真摯に、そして大胆に。」これが私の変わらぬ信条です。顧客満足の追求と社会への貢献度向上を軸に、これからも企業の成長と課題解決に全力で取り組んでまいります。お気軽にご相談ください。共に次の一手を考えましょう。
+              </p>
+              <p className="text-right border-t border-gray-200 pt-6">
+                <span className="text-sm text-text-sub">ADEPTLINK 代表</span><br />
+                <span className="text-xl font-bold text-navy">國光 良昭</span>
               </p>
             </div>
-            <div className={styles.contactCta}>
-              <a href="/contact" className={styles.btnGreen}>
-                お問い合わせする
-                <span aria-hidden="true" className={styles.arrow}>→</span>
-              </a>
-            </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
 
-      <Footer />
+      {/* CTA */}
+      <CTASection />
     </>
   );
 }

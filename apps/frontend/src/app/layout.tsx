@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "EZ-Asset | IT資産管理・DX推進支援",
+  title: "ADEPTLINK｜企業価値向上を支援する経営コンサルティング",
   description:
-    "EZ-Assetは、中小企業のDX推進支援とIT資産の適正処分・再資源化を通じて、企業の「もったいない」を次の成長につなげます。",
+    "ADEPTLINKは、流通小売業界で40年以上の経験を持つ國光良昭が代表を務めるコンサルティング事業です。経営、業務、人事、事業開発、社外取締役・顧問のご相談に対応します。",
   openGraph: {
-    title: "EZ-Asset | IT資産管理・DX推進支援",
+    title: "ADEPTLINK｜企業価値向上を支援する経営コンサルティング",
     description:
-      "中小企業のDX推進支援とIT資産の適正処分・再資源化を支援します。",
+      "流通小売業界で40年以上の経験を持つ實践型コンサルティング。経営・業務・人事・事業開発の課題解決を支援します。",
     locale: "ja_JP",
     type: "website",
   },
@@ -21,7 +23,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body>{children}</body>
+      <body>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }

@@ -1,26 +1,14 @@
-/* ─── CSS カスタムプロパティ ─────────────────────────────────────────────── */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700&display=swap');
+
 :root {
-  --color-deep-navy:  #8C0116;
-  --color-navy:       #AF011C;
-  --color-green:      #20B486;
-  --color-pale-green: #8DE8C7;
-  --color-blue-gray:  #8F7272;
-  --color-rose-muted: #F5C0C4;
-  --color-light-gray: #F4F7F6;
-  --color-white:      #FFFFFF;
-
-  --font-ja: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN",
-             "Hiragino Sans", Meiryo, "Segoe UI", sans-serif;
-
-  --max-width: 1160px;
-  --section-px: clamp(24px, 5vw, 80px);
-  --section-py: clamp(72px, 10vw, 128px);
-  --radius: 8px;
-
-  --transition-base: 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  --font-inter: 'Inter', system-ui, sans-serif;
+  --font-noto: 'Noto Sans JP', system-ui, sans-serif;
 }
 
-/* ─── リセット ─────────────────────────────────────────────────────────── */
 *,
 *::before,
 *::after {
@@ -31,16 +19,19 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
 }
 
 body {
-  font-family: var(--font-ja);
-  line-height: 1.75;
-  color: var(--color-deep-navy);
-  background: var(--color-white);
+  font-family: 'Noto Sans JP', 'Inter', system-ui, sans-serif;
+  color: #111827;
+  background: #ffffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.75;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Noto Sans JP', 'Inter', system-ui, sans-serif;
 }
 
 img, svg {
@@ -64,20 +55,10 @@ ul, ol {
   list-style: none;
 }
 
-/* ─── スクリーンリーダー専用 ─────────────────────────────────────────── */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
+.font-inter {
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
-/* ─── prefers-reduced-motion ─────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
